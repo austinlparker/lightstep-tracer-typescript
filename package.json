@@ -1,0 +1,48 @@
+{
+  "name": "lightstep-tracer-typescript",
+  "version": "0.0.1",
+  "description": "lightstep distributed tracing client for typescript",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testRegex": "^.+\\.spec\\.ts$"
+  },
+  "keywords": [
+    "tracing",
+    "lightstep"
+  ],
+  "author": "Austin Parker",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/lightstep/lightstep-tracer-typescript"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.9",
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "opentracing": "^0.14.3",
+    "protobufjs": "~6.8.8"
+  }
+}
