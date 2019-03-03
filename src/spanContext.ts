@@ -7,7 +7,8 @@ export default class LightStepSpanContext extends SpanContext {
     private _parentSpanId?: string | null;
     private _baggage: Baggage = new Baggage();
 
-    LightStepSpanContext(traceId: string, spanId: string, baggage?: Baggage, parentId?: string) {
+    constructor(traceId: string, spanId: string, baggage?: Baggage, parentId?: string) {
+        super()
         this._traceId = traceId;
         this._spanId = spanId;
         if (baggage) {

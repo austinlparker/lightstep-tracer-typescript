@@ -12,7 +12,9 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "genDeclaration": "tsc -d --emitDeclarationOnly --allowJs false",
+    "parcel": "parcel build ./src/index.ts"
   },
   "jest": {
     "transform": {
@@ -37,6 +39,7 @@
   "devDependencies": {
     "@types/jest": "^24.0.9",
     "jest": "^24.1.0",
+    "parcel-bundler": "^1.11.0",
     "prettier": "^1.16.4",
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.3333"

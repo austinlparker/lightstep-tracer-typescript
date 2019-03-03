@@ -12,6 +12,7 @@ export class LightStepSpan extends Span {
     private _startTimeStamp!: Date;
     private _finishTimeStamp!: Date;
     private _finished: boolean = false;
+    private _parentSpanId?: string;
 
     constructor(
         tracer: LightStepTracer, 
@@ -26,6 +27,10 @@ export class LightStepSpan extends Span {
             this._spanContext = context;
             this._startTimeStamp = startTime || new Date();
             this._tags = tags || new Map<string, any>()
+    }
+
+    public SetParentId(id: string): void {
+        this._parentSpanId = id;
     }
 
      // By default returns a no-op SpanContext.
