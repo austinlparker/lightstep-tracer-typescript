@@ -2,6 +2,8 @@ import { Span, SpanContext, Tracer } from 'opentracing';
 import { LightStepTracer } from './tracer';
 import LightStepSpanContext from './spanContext';
 import Log from './log';
+import * as pb from "./collector_pb"
+import ProtoHelpers from './helpers/protoHelpers';
 
 export class LightStepSpan extends Span {
     private _operationName!: string;
@@ -102,7 +104,18 @@ export class LightStepSpan extends Span {
     }
 
     private onFinished(): void {
-        //TODO: convert to proto and append to report
+        let span = new pb.lightstep.collector.Span()
+        span.operationName = this._operationName
+        span.spanContext = ProtoHelpers.SpanContext(this._spanContext)
+        this._tags.forEach((key, value) => span.tags.push(ProtoHelpers.KeyValue(key, value)))
+        span.startTimestamp = ProtoHelpers.Timestamp(this._startTimeStamp)
+        span.durationMicros = Math.floor(this.getDuration() * 1000)
+        
+        this._lightStepTracer.AppendSpan(span)
+    }
+
+    private getDuration(): number {
+        return this._finishTimeStamp.valueOf() - this._startTimeStamp.valueOf()
     }
 }
 

@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "tsc",
+    "build": "tsc && npm run genDeclaration",
     "genDeclaration": "tsc -d --emitDeclarationOnly --allowJs false",
     "parcel": "parcel build ./src/index.ts"
   },
@@ -45,6 +45,8 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "cross-fetch": "^3.0.1",
+    "long": "^4.0.0",
     "opentracing": "^0.14.3",
     "protobufjs": "~6.8.8"
   }

@@ -39,3 +39,4 @@ lib/**
 *.map
 .cache/**
 dist/**
+.idea/**

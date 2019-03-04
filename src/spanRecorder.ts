@@ -1,7 +1,7 @@
 import * as pb from "./collector_pb"
 
 export default class LightStepSpanRecorder {
-    private _spans!: pb.lightstep.collector.Span[]
+    private _spans: pb.lightstep.collector.Span[] = new Array<pb.lightstep.collector.Span>()
     private _reportStartTime: Date = new Date()
     private _reportEndTime!: Date
     private _droppedSpanCount: number = 0
@@ -20,5 +20,17 @@ export default class LightStepSpanRecorder {
 
     public GetSpans(): pb.lightstep.collector.Span[] {
         return this._spans
+    }
+
+    public GetStartTime(): Date {
+        return this._reportStartTime
+    }
+
+    public GetDuration(): number {
+        return this._reportEndTime.valueOf() - this._reportStartTime.valueOf()
+    }
+
+    public GetDroppedSpans(): number {
+        return this._droppedSpanCount
     }
 }

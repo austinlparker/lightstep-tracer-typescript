@@ -13,7 +13,7 @@ export const LS_HOSTNAME_KEY = 'lightstep.hostname';
 export const LS_COMPONENT_KEY = 'lightstep.component_name';
 export const LS_COMMAND_LINE_KEY = 'lightstep.command_line';
 export const LS_TRACER_PLATFORM_KEY = 'lightstep.tracer_platform';
-export const LS_TRACER_PLATFORM_VALUE_NODE = 'nodejs';
+export const LS_TRACER_PLATFORM_VALUE_NODE = 'node';
 export const LS_TRACER_PLATFORM_VALUE_BROWSER = 'browser';
 export const LS_TRACER_VERSION_KEY = 'lightstep.tracer_version';
 
